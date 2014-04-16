@@ -19,13 +19,13 @@ public class SimpleCommands extends JavaPlugin{
 	@Override
 	public void onDisable(){
 		PluginDescriptionFile pdfFile = this.getDescription();
-		this.logger.info(pdfFile.getName() + " Version " + pdfFile.getVersion() + " Has Been Disabled!");
+		this.logger.info(pdfFile.getName() + " Version " + pdfFile.getVersion() + " by " + pdfFile.getAuthors() + " Has Been Disabled!");
 	}
 
 	@Override
 	public void onEnable(){
 		PluginDescriptionFile pdfFile = this.getDescription();
-		this.logger.info(pdfFile.getName() + " Version " + pdfFile.getVersion() + " Has Been Enabled!");
+		this.logger.info(pdfFile.getName() + " Version " + pdfFile.getVersion() + " by " + pdfFile.getAuthors() + " Has Been Enabled!");
 		
 		
 		try {
@@ -38,13 +38,16 @@ public class SimpleCommands extends JavaPlugin{
 
 
 	public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args){
+		PluginDescriptionFile pdfFile = this.getDescription();
 		if(commandLabel.equalsIgnoreCase("sc")){
 			if(args.length == 0){
-				sender.sendMessage("Simple Commands Plugin v1.2 by trulis");
+				/*sender.sendMessage("Simple Commands Plugin v1.2.1 by trulis");*/
+				sender.sendMessage(pdfFile.getName() + " Version " + pdfFile.getVersion() + " by " + pdfFile.getAuthors());
 				sender.sendMessage(ChatColor.AQUA + "/sc help - shows you the commands of Simple Commands");
 			}else if(args.length == 1){
 				if(args[0].equalsIgnoreCase("help")){
-					sender.sendMessage("Simple Commands Plugin v1.2 by trulis");
+					/*sender.sendMessage("Simple Commands Plugin v1.2.1 by trulis");*/
+					sender.sendMessage(pdfFile.getName() + " Version " + pdfFile.getVersion() + " by " + pdfFile.getAuthors());
 					sender.sendMessage(ChatColor.AQUA + "/sc help - shows you the commands of Simple Commands");
 					sender.sendMessage(ChatColor.AQUA + "/sc heal - fills your hp bar");
 					sender.sendMessage(ChatColor.AQUA + "/sc feed - fills your food bar");
